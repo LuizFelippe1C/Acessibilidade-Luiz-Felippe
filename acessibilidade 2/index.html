@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicas de Treino de Basquete</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#conteudo" class="skip-link">Ir para o conteúdo principal</a>
+    
+    <header>
+        <h1>Dicas de Treino de Basquete</h1>
+        <nav aria-label="Menu principal">
+            <button id="temaBtn">Alternar Tema</button>
+            <button id="contrasteBtn">Alto Contraste</button>
+            <button id="fonteBtn">Aumentar Fonte</button>
+        </nav>
+    </header>
+
+    <main id="conteudo">
+        <section>
+            <h2>Gerar Plano de Treino</h2>
+            <form id="treinoForm">
+                <label for="posicao">Posição:</label>
+                <select id="posicao" name="posicao">
+                    <option value="armador">Armador</option>
+                    <option value="ala">Ala</option>
+                    <option value="pivô">Pivô</option>
+                </select>
+
+                <label for="estilo">Estilo de jogo:</label>
+                <select id="estilo" name="estilo">
+                    <option value="velocidade">Velocidade</option>
+                    <option value="forca">Força</option>
+                    <option value="habilidade">Habilidade</option>
+                </select>
+
+                <label for="nivel">Nível:</label>
+                <select id="nivel" name="nivel">
+                    <option value="iniciante">Iniciante</option>
+                    <option value="intermediario">Intermediário</option>
+                    <option value="avancado">Avançado</option>
+                </select>
+
+                <label for="objetivos">Objetivos:</label>
+                <textarea id="objetivos" name="objetivos"></textarea>
+
+                <label for="tempo">Tempo disponível por treino (min):</label>
+                <input type="number" id="tempo" name="tempo" min="10" max="180">
+
+                <label for="dias">Dias por semana:</label>
+                <input type="number" id="dias" name="dias" min="1" max="7">
+
+                <button type="submit">Gerar Plano</button>
+                <button type="reset">Limpar</button>
+                <button type="button" id="salvarBtn">Salvar Plano</button>
+                <button type="button" id="imprimirBtn">Imprimir / PDF</button>
+            </form>
+        </section>
+
+        <section aria-live="polite">
+            <h2>Plano Gerado</h2>
+            <div id="resultado"></div>
+        </section>
+    </main>
+
+    <aside>
+        <details>
+            <summary>Exercícios Populares</summary>
+            <ul>
+                <li>Arremessos de 3 pontos</li>
+                <li>Treino de drible</li>
+                <li>Poste baixo</li>
+            </ul>
+        </details>
+    </aside>
+
+    <footer>
+        <p>&copy; 2025 Dicas de Treino de Basquete</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
