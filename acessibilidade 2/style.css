@@ -1,178 +1,200 @@
-/* Reset e estilo base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+
+:root {
+    --laranja-claro: #FF862A;
+    --alto-contraste-fundo: #000000;
+    --alto-contraste-texto: #ffffff;
+    --alto-contraste-link: #ffd700;
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
-  background: #f7f7f7;
-  color: #333;
-  transition: background 0.3s, color 0.3s;
-}
-
-body.dark {
-  background: #1c1c1c;
-  color: #f1f1f1;
-}
-
-body.contrast {
-  background: #000;
-  color: #ff0;
+    font-size: 1rem;
+    font-family: 'Montserrat';
 }
 
 header {
-  background: linear-gradient(135deg, #ff6600, #ff9900);
-  color: #fff;
-  padding: 1.5rem;
-  text-align: center;
-  border-bottom: 5px solid #cc5200;
+    background-color: #ffffff;
 }
 
-header h1 {
-  font-size: 2.5rem;
-}
-
-main {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
 
 section {
-  margin-bottom: 2rem;
+    padding-bottom: 5rem;
 }
+
+
+.nav-link {
+    color: #CB6D43;
+    font-weight: 600;
+}
+
+.inicio-fundo {
+    /* aula 3 */
+    background-image: url('img/4965007.jpg');
+    /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: right;
+    border-radius: 80px;
+    width: 100%;
+    height: 606px;
+    padding: 40px;
+    margin: 0 auto;
+}
+
+/* posicionamento para a imagem à direita */
+.img-inicio {
+    position: absolute;
+    right: 0;
+    top: 18rem;
+    width: 45rem;
+    height: auto;
+}
+
+
+.esquerda-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+
+.botao-inicio {
+    background-color: var(--laranja-claro);
+    border-radius: 30px;
+    border: none;
+    width: 14em;
+    height: 3em;
+    align-content: center;
+
+}
+
+.display-4 {
+    text-shadow: -5px 5px var(--laranja-claro);
+}
+
+
+#tropicalia {
+    position: relative;
+    padding-top: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background: url('img/flor.png') top right no-repeat,
+        url('img/flor-esquerda.png') bottom left no-repeat;
+    background-size: 180px 180px;
+    /* Ajuste o tamanho conforme necessário */
+}
+
+#tropicalia .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    /* Garante que o conteúdo fica acima das imagens do background */
+}
+
 
 h2 {
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-  color: #ff6600;
+    font-family: 'Lemon', serif;
+    font-size: 2.5em;
+    font-style: normal;
+    color: var(--laranja-claro);
 }
 
-fieldset {
-  border: 2px solid #ff6600;
-  border-radius: 10px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+#galeria {
+    background-color: #FAF4F4;
+
 }
 
-legend {
-  font-weight: bold;
-  color: #cc5200;
+.fundo-galeria {
+    background: url('img/flor-bottom-direita.png') bottom right no-repeat;
+    background-size: 180px 180px;
 }
 
-label {
-  display: block;
-  margin-top: 0.5rem;
-  font-weight: bold;
+#contato {
+    background-image: url('img/4965007.jpg');
+    background-size: cover;
+    padding: 4rem 0;
+    /* Espaçamento interno para a seção de contato */
+
 }
 
-select, input, button, textarea {
-  margin-top: 0.5rem;
-  padding: 0.6rem;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  width: 100%;
-  font-size: 1rem;
+.formulario {
+    background-color: #ffffff;
+    padding: 2rem;
+    /* Espaçamento interno dentro do formulário */
+    border-radius: 10px;
+    /* Borda arredondada para o formulário */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra suave para destacar o formulário */
+    font-weight: bold;
 }
 
-button {
-  background: #ff6600;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
-  font-weight: bold;
+.formulario button {
+    background-color: #CB6D43;
+    border: none;
+    font-weight: bold;
 }
 
-button:hover {
-  background: #cc5200;
+.form-control {
+    background-color: #F1EDEF;
+}
+.menu-acessibilidade{
+    position: fixed;
+    top:2rem;
+    right:20px;
+    z-index: 1000;
 }
 
-#resultado, #catalogo-exercicios {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  border: 2px solid #ff6600;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+.rotacao-botao{
+    transform: rotate(-90deg);
+    transform-origin: right center;
 }
 
-body.dark #resultado,
-body.dark #catalogo-exercicios {
-  background: #2a2a2a;
-  border-color: #ff9900;
+.opcoes-acessibilidade{
+    margin-top:10px;
+    display: flex;
+    flex-direction: column;
 }
 
-.card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
+.opcoes-acessibilidade button{
+    margin-bottom: 5px;
+}
+.apresenta-lista{
+    display: none;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.alto-contraste{
+    background-color: var(--alto-contraste-fundo);
+    color: var(--alto-contraste-texto);
 }
 
-body.dark .card {
-  background: #333;
+.alto-contraste header,
+.alto-contraste footer,
+.alto-contraste .formulario{
+    background-color: var(--alto-contraste-fundo);
+    color: var(--alto-contraste-texto);
 }
 
-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #ff6600;
-  color: #fff;
-  margin-top: 2rem;
+.alto-contraste .nav-link{
+    color: var(--alto-contraste-link);
 }
 
-/* Barra de progresso */
-#barra-progresso progress {
-  width: 100%;
-  height: 20px;
+.alto-contraste .botao-inicio,
+.alto-contraste .formulario button,
+.alto-contraste .btn-primary{
+    background-color: var(--alto-contraste-link);
+    color: var(--alto-contraste-fundo)
 }
 
-#barra-progresso progress::-webkit-progress-bar {
-  background-color: #eee;
-  border-radius: 10px;
+.alto-contraste #tropicalia {
+    background: none;
 }
 
-#barra-progresso progress::-webkit-progress-value {
-  background: linear-gradient(90deg, #ff6600, #ff9900);
-  border-radius: 10px;
+.alto-contraste #galeria {
+    background-color: var(--alto-contraste-fundo);
 }
-
-#barra-progresso progress::-moz-progress-bar {
-  background: linear-gradient(90deg, #ff6600, #ff9900);
-  border-radius: 10px;
-}
-
-/* Acessibilidade */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #000;
-  color: #fff;
-  padding: 8px;
-  z-index: 100;
-  transition: top 0.3s;
-}
-
-.skip-link:focus {
-  top: 0;
-}
-
-:focus {
-  outline: 3px solid #ff6600;
-  outline-offset: 2px;
-}
-
-body.large-font {
-  font-size: 1.3rem;
+.alto-contraste .fundo-galeria {
+    background: none;
 }
