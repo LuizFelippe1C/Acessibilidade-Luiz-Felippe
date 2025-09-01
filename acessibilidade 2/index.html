@@ -1,85 +1,247 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dicas de Treino de Basquete</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Loja de Basquete</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* Botão de acessibilidade */
+        #acessibilidade-fixo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            border: none;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1050;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        #painel-acessibilidade {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 10px;
+            display: none;
+            z-index: 1050;
+            width: 140px;
+            text-align: center;
+        }
+
+        #painel-acessibilidade button {
+            margin: 5px 0;
+            width: 100%;
+            border-radius: 6px;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode header,
+        body.dark-mode footer,
+        body.dark-mode #painel-acessibilidade {
+            background-color: #1e1e1e !important;
+            color: #e0e0e0 !important;
+        }
+
+        body.dark-mode .card {
+            background-color: #2a2a2a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode a.btn-primary {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+    </style>
 </head>
+
 <body>
-    <a href="#conteudo" class="skip-link">Ir para o conteúdo principal</a>
-    
-    <header>
-        <h1>Dicas de Treino de Basquete</h1>
-        <nav aria-label="Menu principal">
-            <button id="temaBtn">Alternar Tema</button>
-            <button id="contrasteBtn">Alto Contraste</button>
-            <button id="fonteBtn">Aumentar Fonte</button>
+    <header class="p-4 bg-dark text-white">
+        <nav class="container d-flex justify-content-between align-items-center" aria-label="Menu principal">
+            <img src="https://images.vexels.com/media/users/3/197952/isolated/preview/44c5894d9cff43a2f25bbc2133e9b8f4-jogador-de-basquete-plano.png" alt="Logo Loja de Basquete" class="nav-img" loading="lazy" width="120" />
+            <ul class="nav mt-3">
+                <li class="nav-item"><a class="nav-link text-white" href="#inicio">Início</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#produtos">Produtos</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#sobre">Sobre Nós</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#contato">Contato</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main id="conteudo">
-        <section>
-            <h2>Gerar Plano de Treino</h2>
-            <form id="treinoForm">
-                <label for="posicao">Posição:</label>
-                <select id="posicao" name="posicao">
-                    <option value="armador">Armador</option>
-                    <option value="ala">Ala</option>
-                    <option value="pivô">Pivô</option>
-                </select>
-
-                <label for="estilo">Estilo de jogo:</label>
-                <select id="estilo" name="estilo">
-                    <option value="velocidade">Velocidade</option>
-                    <option value="forca">Força</option>
-                    <option value="habilidade">Habilidade</option>
-                </select>
-
-                <label for="nivel">Nível:</label>
-                <select id="nivel" name="nivel">
-                    <option value="iniciante">Iniciante</option>
-                    <option value="intermediario">Intermediário</option>
-                    <option value="avancado">Avançado</option>
-                </select>
-
-                <label for="objetivos">Objetivos:</label>
-                <textarea id="objetivos" name="objetivos"></textarea>
-
-                <label for="tempo">Tempo disponível por treino (min):</label>
-                <input type="number" id="tempo" name="tempo" min="10" max="180">
-
-                <label for="dias">Dias por semana:</label>
-                <input type="number" id="dias" name="dias" min="1" max="7">
-
-                <button type="submit">Gerar Plano</button>
-                <button type="reset">Limpar</button>
-                <button type="button" id="salvarBtn">Salvar Plano</button>
-                <button type="button" id="imprimirBtn">Imprimir / PDF</button>
-            </form>
+    <main class="container my-5">
+        <section id="inicio" class="my-5">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center bg-secondary p-4 rounded-4">
+                <div class="text-white mb-4 mb-md-0">
+                    <h1 class="display-4 fst-italic fw-bold">Tudo para o Seu Jogo de Basquete</h1>
+                    <p class="lead">Tênis, camisas e acessórios para jogadores e fãs de basquete.</p>
+                    <a href="#produtos" class="btn btn-primary btn-lg fw-semibold">Confira nossos produtos</a>
+                </div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL9pu1QRpERgYnQlanxumnFPozPEOqMAZLtA&s" alt="Jogadores de basquete em quadra" class="img-fluid rounded-4" width="400" loading="lazy" />
+            </div>
         </section>
 
-        <section aria-live="polite">
-            <h2>Plano Gerado</h2>
-            <div id="resultado"></div>
+        <section id="produtos" class="my-5" aria-label="Seção de produtos">
+            <h2 class="mb-4 text-center">Nossos Produtos</h2>
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <article class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="data:image/jpeg;base64,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" class="card-img-top" alt="Tênis de basquete vermelho" loading="lazy" />
+                        <div class="card-body">
+                            <h3 class="card-title h5">Tênis Nike kobe 6 "reverse grinch"</h3>
+                            <p class="card-text">Um classico especial de natal da lenda Black mamba.</p>
+                            <p class="fw-bold">R$ 1899,90</p>
+                            <a href="#contato" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="https://images.tcdn.com.br/img/img_prod/1044362/regata_nba_toronto_raptors_199899_mitchell_amp_nes_1_20250804121051_6f837b06a93e.png" class="card-img-top" alt="Camisa de basquete azul" loading="lazy" />
+                        <div class="card-body">
+                            <h3 class="card-title h5">Regata retro Toronto Raptor</h3>
+                            <p class="card-text">Respirável, leve e perfeita para treinos ou jogos.</p>
+                            <p class="fw-bold">R$ 199,90</p>
+                            <a href="#contato" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8RDw8QEA8NDxAQDg0QEA8NDQ8NDQ4QFRUWFhURFRUYHSggGBolGxMVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDQ0OFg8PFSsdFR8tLTEtLS0rLS03Kys3KzgtLSsrLTcrKy0sKysrNys3LTcrKzcrLS03KystKyszODcrL//AABEIAOEA4QMBIgACEQEDEQH/xAAaAAEAAwEBAQAAAAAAAAAAAAAAAQIDBAUH/8QAKxABAQACAQEGBgIDAQAAAAAAAAECAxEhBDFBUWFxBRITIoGRMrEGFOHR/8QAFwEBAQEBAAAAAAAAAAAAAAAAAAECA//EAB0RAQEAAwACAwAAAAAAAAAAAAABAhExIUEDEsH/2gAMAwEAAhEDEQA/APuIAAAAAAAAAAAAx37LLxL4KY7b5tfWjpGU2+i8ziaFgEAAAAAAAAAAAAAAAAAAAAAAAEWg5dt5yqIrcuOtsnuvHVDlPIixFWmdni0x3ebBHJqVHZKlh2e9/X8N2LNKAIAAAAAAAAAAAAAAAAAADPfftv6aMO03un5WdHifH+x4b9c17c7jqluzbxeMssMJ3ek5stvp6vM/wmbbv+JbMs7lq/2pq04SXDVhjrl/hhf4/blhLx3/ACq/F/jXydq7TquPzYT4ftuMymUwz34Y57Pp/N64X3ev/jHF7Lr2zXNX+x83aPpy8/LNl+bGc+fy3F0zl3Jeddfjuvjzuu6n69ZBSo5IqBTZWkVmXLfDbZ48+7KLSJpXThul7+jVx4Y83h2MZSQAGQAAAAAAAAAAAAAAAAcu+85e3DqcdvNt9a1j0eJ8T/x3HdNs+ru1zbhtxyxwuFx+/G43KczmXrz0vHMnL2tOuY4444zjHHHHGTyknEi8Grdm/GvSEVKtIIZ281bZeIpi0LxaIi2M56CN+z4+LZEiXK3agCAAAAAAAAAAAAAAAACuy8S+zljbtN6SedYxvHgsi/8AEoUFamq2rBlsvXhOKsaRRMb9nx68+TGOzXjxIzlfAsA5gAAAAAAAAAAAAAAAACMrxOQc+685e3RWREXdOCEJVoIrPZf/AFeqZRoVkXiJFpAaaceb7dXWy0Y9OfNq55XyADIAAAAAAAAAAAAAAAAMe0ZdOPNrleHLllzeWsYGMWpIVqiFalWkEIqUVoRF8MebwrG/Zp1tS3UHRIA5AAAAAAAAAAAAAAAAADHbn4T8rJsV258+ymJwR09IshKGVFMl1K1BUVt6p5UTHV2adPy5HX2f+P5qZ8GoDkAAAAAAAAAAAAAAAAKbc+J6+DGRO6/d7Ibk8AAoISIIUyXVyaiMcu8lTsiqqs6ey3vn5czbs94yn6MuI6wHFQAAAAAAAAAAAAAAAGG/Hrz+1JXVY59mrjrO7+mpfQqlWVaNAJQghXJZWtQUzUjSqNIRbGoiQd8oppv2xdwUAAAAAAAAAAAAAAAAABjs1+M/TKV1sd2vxn5alFBEqVEK1ZWrBVS966mfg2iUxWLQHR2fLwbuKOjDb5ueUGoiVLCgAAAAAAAAAAAAAAAAAMNuHF58P6UdNnLms4vHk1KCKlFjUFKjLHmL2EjW0YRpivlgj6a7CLRVPKUW5X17L3Vlz+2urXeeb09GbobgOagAAAAAAAAAAAAAAADLfj4+TUByJMpxeEOgkgKiYi1KtQGmnCXnp1Zek6ujTr496ZcF5jJ3SRIOagAAAAAAAAAAAAAAAAAAAMt2vnrO/wDthxfK/p2Cyjlkvlf0tML5OgX7DD6V9Fppnjb/AE1E3RGOMnd0SCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/2Q==" class="card-img-top" alt="Meias de basquete" loading="lazy" />
+                        <div class="card-body">
+                            <h3 class="card-title h5">Meias cano alto Basquete NBA</h3>
+                            <p class="card-text">Conforto e suporte para suas pernas durante o jogo.</p>
+                            <p class="fw-bold">R$ 49,90</p>
+                            <a href="#contato" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="data:image/jpeg;base64,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" class="card-img-top" alt="Bola de basquete oficial" loading="lazy" />
+                        <div class="card-body">
+                            <h3 class="card-title h5">Bola de Basquete Wilson Oficial</h3>
+                            <p class="card-text">Alta durabilidade e performance profissional para quadras indoor.</p>
+                            <p class="fw-bold">R$ 149,90</p>
+                            <a href="#contato" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="sobre" class="my-5" tabindex="0" aria-label="Informações sobre a loja">
+            <h2>Sobre Nós</h2>
+            <p>
+                Somos apaixonados por basquete e queremos levar a melhor experiência para atletas e fãs.
+                Trabalhamos com produtos de qualidade, que unem estilo, conforto e performance.
+                Nossa missão é oferecer uma loja confiável, acessível e inspiradora para todos os amantes do basquete.
+            </p>
+        </section>
+
+        <section id="contato" class="my-5">
+            <div class="container p-5 bg-light rounded-4">
+                <h2 class="mb-3">Fale Conosco</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" id="nome" name="nome" class="form-control rounded-3" placeholder="Digite seu nome completo" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control rounded-3" placeholder="Digite seu email" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensagem" class="form-label">Mensagem</label>
+                        <textarea id="mensagem" name="mensagem" class="form-control rounded-4" rows="4" placeholder="Escreva sua mensagem" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill">Enviar mensagem</button>
+                </form>
+            </div>
         </section>
     </main>
 
-    <aside>
-        <details>
-            <summary>Exercícios Populares</summary>
-            <ul>
-                <li>Arremessos de 3 pontos</li>
-                <li>Treino de drible</li>
-                <li>Poste baixo</li>
-            </ul>
-        </details>
-    </aside>
-
-    <footer>
-        <p>&copy; 2025 Dicas de Treino de Basquete</p>
+    <footer class="text-center p-3 fst-italic bg-dark text-white">
+        <p>Siga nossas redes sociais:</p>
+        <a href="https://wa.me/seunumerodetelefone" target="_blank" rel="noopener" class="text-white mx-2" aria-label="WhatsApp"><i class="bi bi-whatsapp fs-3"></i></a>
+        <a href="https://instagram.com/seuperfil" target="_blank" rel="noopener" class="text-white mx-2" aria-label="Instagram"><i class="bi bi-instagram fs-3"></i></a>
+        <a href="https://facebook.com/seuperfil" target="_blank" rel="noopener" class="text-white mx-2" aria-label="Facebook"><i class="bi bi-facebook fs-3"></i></a>
+        <p class="mt-3 mb-0">© 2025 Loja de Basquete. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="app.js"></script>
+    <!-- Botão de acessibilidade fixo -->
+    <button id="acessibilidade-fixo" aria-label="Menu de acessibilidade" aria-haspopup="true" aria-expanded="false" title="Acessibilidade">
+        <i class="bi bi-universal-access"></i>
+    </button>
+    <div id="painel-acessibilidade" role="region" aria-label="Opções de acessibilidade">
+        <button id="aumentar-fonte" class="btn btn-primary fw-bold" aria-label="Aumentar o tamanho da fonte">A+</button>
+        <button id="diminuir-fonte" class="btn btn-primary fw-bold" aria-label="Diminuir o tamanho da fonte">A-</button>
+        <button id="alternar-tema" class="btn btn-primary fw-bold" aria-label="Alternar tema escuro/claro"><i class="bi bi-moon-stars"></i> Tema</button>
+    </div>
+
+    <script>
+        const btnAcessibilidade = document.getElementById('acessibilidade-fixo');
+        const painel = document.getElementById('painel-acessibilidade');
+
+        btnAcessibilidade.addEventListener('click', () => {
+            const aberto = painel.style.display === 'block';
+            painel.style.display = aberto ? 'none' : 'block';
+            btnAcessibilidade.setAttribute('aria-expanded', !aberto);
+        });
+
+        const aumentarFonteBtn = document.getElementById('aumentar-fonte');
+        const diminuirFonteBtn = document.getElementById('diminuir-fonte');
+        let tamanhoFonteAtual = 100;
+
+        function aplicarTamanhoFonte() {
+            document.documentElement.style.fontSize = tamanhoFonteAtual + '%';
+        }
+
+        aumentarFonteBtn.addEventListener('click', () => {
+            if (tamanhoFonteAtual < 150) {
+                tamanhoFonteAtual += 10;
+                aplicarTamanhoFonte();
+            }
+        });
+
+        diminuirFonteBtn.addEventListener('click', () => {
+            if (tamanhoFonteAtual > 60) {
+                tamanhoFonteAtual -= 10;
+                aplicarTamanhoFonte();
+            }
+        });
+
+        const btnTema = document.getElementById('alternar-tema');
+        btnTema.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!painel.contains(e.target) && !btnAcessibilidade.contains(e.target)) {
+                painel.style.display = 'none';
+                btnAcessibilidade.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>
