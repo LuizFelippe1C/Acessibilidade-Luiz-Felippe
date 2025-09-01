@@ -1,67 +1,55 @@
-const form = document.getElementById('treinoForm');
-const resultado = document.getElementById('resultado');
+// script.js
 
-const temaBtn = document.getElementById('temaBtn');
-const contrasteBtn = document.getElementById('contrasteBtn');
-const fonteBtn = document.getElementById('fonteBtn');
-const salvarBtn = document.getElementById('salvarBtn');
-const imprimirBtn = document.getElementById('imprimirBtn');
+// ---------------------------
+// Painel de acessibilidade
+// ---------------------------
+const btnAcessibilidade = document.getElementById('acessibilidade-fixo');
+const painel = document.getElementById('painel-acessibilidade');
 
-// Alternar tema
-temaBtn.addEventListener('click', () => {
-  document.body.classList.toggle('tema-escuro');
-  localStorage.setItem('tema', document.body.classList.contains('tema-escuro'));
+btnAcessibilidade.addEventListener('click', () => {
+    const aberto = painel.style.display === 'block';
+    painel.style.display = aberto ? 'none' : 'block';
+    btnAcessibilidade.setAttribute('aria-expanded', !aberto);
 });
 
-// Alto contraste
-contrasteBtn.addEventListener('click', () => {
-  document.body.classList.toggle('alto-contraste');
+// Fecha painel ao clicar fora
+document.addEventListener('click', (e) => {
+    if (!painel.contains(e.target) && !btnAcessibilidade.contains(e.target)) {
+        painel.style.display = 'none';
+        btnAcessibilidade.setAttribute('aria-expanded', 'false');
+    }
 });
 
-// Aumentar fonte
-fonteBtn.addEventListener('click', () => {
-  document.body.classList.toggle('fonte-grande');
+// ---------------------------
+// Controle de tamanho da fonte
+// ---------------------------
+const aumentarFonteBtn = document.getElementById('aumentar-fonte');
+const diminuirFonteBtn = document.getElementById('diminuir-fonte');
+let tamanhoFonteAtual = 100; // %
+
+function aplicarTamanhoFonte() {
+    document.documentElement.style.fontSize = tamanhoFonteAtual + '%';
+}
+
+aumentarFonteBtn.addEventListener('click', () => {
+    if (tamanhoFonteAtual < 150) { // limite superior
+        tamanhoFonteAtual += 10;
+        aplicarTamanhoFonte();
+    }
 });
 
-// Gerar plano de treino
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const posicao = form.posicao.value;
-  const estilo = form.estilo.value;
-  const nivel = form.nivel.value;
-  const objetivos = form.objetivos.value;
-  const tempo = form.tempo.value;
-  const dias = form.dias.value;
-
-  resultado.innerHTML = `
-    <div class="plano">
-      <h3>Plano para ${posicao} (${nivel})</h3>
-      <p><strong>Estilo:</strong> ${estilo}</p>
-      <p><strong>Tempo por treino:</strong> ${tempo} min</p>
-      <p><strong>Dias por semana:</strong> ${dias}</p>
-      <p><strong>Objetivos:</strong> ${objetivos}</p>
-    </div>
-  `;
+diminuirFonteBtn.addEventListener('click', () => {
+    if (tamanhoFonteAtual > 60) { // limite inferior
+        tamanhoFonteAtual -= 10;
+        aplicarTamanhoFonte();
+    }
 });
 
-// Salvar plano no localStorage
-salvarBtn.addEventListener('click', () => {
-  localStorage.setItem('planoTreino', resultado.innerHTML);
-  alert('Plano salvo!');
-});
+// ---------------------------
+// Alternar tema escuro/claro
+// ---------------------------
+const btnTema = document.getElementById('alternar-tema');
 
-// Carregar plano salvo ao abrir
-window.addEventListener('load', () => {
-  if (localStorage.getItem('planoTreino')) {
-    resultado.innerHTML = localStorage.getItem('planoTreino');
-  }
-
-  if (localStorage.getItem('tema') === 'true') {
-    document.body.classList.add('tema-escuro');
-  }
-});
-
-// Imprimir / PDF
-imprimirBtn.addEventListener('click', () => {
-  window.print();
+btnTema.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
 });
